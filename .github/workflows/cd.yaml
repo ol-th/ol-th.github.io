@@ -1,0 +1,17 @@
+name: website-cd
+on:
+  push:
+    branches:
+      - main
+jobs:
+  - name: build-and-deploy
+    uses: appleboy/ssh-action@master
+    with:
+      host: ${{ secrets.HOST }}
+      username: ${{ secrets.USERNAME }}
+      key: ${{ secrets.KEY }}
+      script: |
+        cd $HOME/ol-th.github.io
+        git pull
+        yarn build
+        ipfs add -r build -Q
