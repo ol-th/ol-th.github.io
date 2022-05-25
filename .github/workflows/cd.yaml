@@ -1,17 +1,22 @@
-name: website-cd
+name: IPFS Site Continuous Deployment
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  - name: build-and-deploy
-    uses: appleboy/ssh-action@master
-    with:
-      host: ${{ secrets.HOST }}
-      username: ${{ secrets.USERNAME }}
-      key: ${{ secrets.KEY }}
-      script: |
-        cd $HOME/ol-th.github.io
-        git pull
-        yarn build
-        ipfs add -r build -Q
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: node-ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd $HOME/ol-th.github.io
+            git pull
+            yarn build
+            ipfs add -r build -Q
