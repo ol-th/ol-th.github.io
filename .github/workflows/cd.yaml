@@ -18,6 +18,4 @@ jobs:
           script: |
             cd $HOME/ol-th.github.io
             git pull
-            npm install
-            yarn build
-            ipfs add -r build -Q
+            docker exec ipfs_host ipfs_add -r export/website/src
