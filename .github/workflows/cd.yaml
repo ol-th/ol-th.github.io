@@ -16,8 +16,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            cd $HOME/ol-th.github.io
-            git pull
-            yarn install
-            yarn build:all
+            cd $HOME/ol-th.github.io && \
+            git pull && \
+            yarn install && \
+            echo "Building" && \
+            yarn build:all && \
+            echo "Uploading to IPFS" && \
             docker exec ipfs_host ipfs name publish --key=website "/ipfs/$(docker exec ipfs_host ipfs add -r export/website/build -Q)"
