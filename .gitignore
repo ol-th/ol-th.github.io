@@ -1,2 +1,5 @@
 node_modules
+build
 *.DS_Store
+src/index.css
+yarn-error.log
