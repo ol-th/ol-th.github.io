@@ -18,4 +18,6 @@ jobs:
           script: |
             cd $HOME/ol-th.github.io
             git pull
-            docker exec ipfs_host ipfs name publish --key=website "/ipfs/$(docker exec ipfs_host ipfs add -r export/website/dist -Q)"
+            yarn install
+            yarn build:all
+            docker exec ipfs_host ipfs name publish --key=website "/ipfs/$(docker exec ipfs_host ipfs add -r export/website/build -Q)"
