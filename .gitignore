@@ -131,5 +131,9 @@ dist
 
 # Project Specifics
 build
+<<<<<<< HEAD
 *.DS_Store
 src/index.css
+=======
+.DS_Store
+>>>>>>> 2a51b092c31129a9c7b280f9a1b54715250dd8d4
