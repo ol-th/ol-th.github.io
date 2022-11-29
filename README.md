@@ -1,1 +1,1 @@
-# [WIP] IPFS-Deployed Personal Site
+# [WIP] IPFS-Deployed Personal Site
