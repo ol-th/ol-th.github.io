@@ -22,4 +22,4 @@ jobs:
             echo "Building" && \
             yarn build:all && \
             echo "Uploading to IPFS" && \
-            docker exec ipfs_host ipfs name publish --key=website "/ipfs/$(docker exec ipfs_host ipfs add -r export/website/build -Q)"
+            ipfs name publish --key=website "/ipfs/$(ipfs add -r build -Q)"
