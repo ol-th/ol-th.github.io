@@ -2,12 +2,10 @@
     "main": "build/index.html",
     "scripts": {
         "build:all": "yarn build:pages && yarn compile:css:prod",
-        "build:pages": "rm -rf build && mkdir -p build && cp -r ./src/*.html ./build/",
-        "serve:prod": "yarn build && yarn serve build",
-        "serve:dev": "yarn serve src",
-        "compile:css:prod": "NODE_ENV=production npx tailwindcss build -i ./src/main.css -o ./build/index.css",
-        "compile:css:dev": "npx tailwindcss build ./src/main.css -o ./src/index.css",
-        "watch": "watch 'yarn compile:css:dev' ./src/"
+        "build:pages": "rm -rf dist && mkdir -p dist && cp -r ./src/*.html ./dist/",
+        "serve:prod": "yarn build:all && yarn serve dist",
+        "compile:css:prod": "NODE_ENV=production npx tailwindcss build -i ./src/main.css -o ./dist/index.css",
+        "watch": "watch 'yarn compile:css:prod' ./src/"
     },
     "keywords": [
         "static",
